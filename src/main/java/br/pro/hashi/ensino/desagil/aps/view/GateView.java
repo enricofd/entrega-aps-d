@@ -122,13 +122,13 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
         int x = event.getX();
         int y = event.getY();
 
-        int dist = Math.abs(x - (lightx + 12)) + Math.abs(y - (lighty + 12));
+        int dist = (x - (lightx + 12)) * (x - (lightx + 12)) + (y - (lighty + 12)) * (y - (lighty + 12));
         System.out.println(dist);
         System.out.println("r" + lightr);
 
 
         // Se o clique foi dentro do circulo colorido...
-        if (dist <= 16) {
+        if (dist <= 4) {
 
             // ...então abrimos a janela seletora de cor...
             light.setColor(JColorChooser.showDialog(this, null, Color.RED));
